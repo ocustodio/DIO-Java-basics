@@ -11,5 +11,7 @@ public class TypesAndVariables {
         int anotherNumber = 1;
         anotherNumber = 2;
         System.out.println(anotherNumber);
+
+        
     }
 }

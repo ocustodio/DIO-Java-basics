@@ -1,6 +1,6 @@
 package carro;
 
-public class Veiculo {
+public abstract class Veiculo {
     private String chassi;
 
     public void setChassi(String chassi) {
@@ -10,4 +10,6 @@ public class Veiculo {
     public String getChassi() {
         return chassi;
     }
+
+    public abstract void ligar();
 }

@@ -1,15 +1,17 @@
 package carro;
 
-public class Carro {
+public class Carro extends Veiculo {
     public void ligar() {
+        confereCambio();
+        confereCombustivel();
         System.out.println("Ligando carro!");
     }
 
-    public void confereCombustivel() {
+    private void confereCombustivel() {
         System.out.println("Conferindo combustivel");
     }
 
-    public void confereCambio() {
+    private void confereCambio() {
         System.out.println("Conferindo posicao do cambio");
     }
 }

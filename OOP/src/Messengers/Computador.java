@@ -5,9 +5,9 @@ public class Computador {
         MSNMessenger msn = new MSNMessenger();
         Telegram telegram = new Telegram();
         FacebookMessenger fMessenger = new FacebookMessenger();
-        // msn.enviarMensagens();
-        // msn.receberMensagem();
-
+        msn.enviarMensagens();
+        msn.receberMensagens();
+        fMessenger.enviarMensagens();
         telegram.enviarMensagens();
     }
 }

@@ -2,12 +2,23 @@ package Messengers;
 
 public class Computador {
     public static void main(String[] args) {
-        MSNMessenger msn = new MSNMessenger();
-        Telegram telegram = new Telegram();
-        FacebookMessenger fMessenger = new FacebookMessenger();
-        msn.enviarMensagens();
-        msn.receberMensagens();
-        fMessenger.enviarMensagens();
-        telegram.enviarMensagens();
+       Messenger servicoMensagem = null;
+
+       String appEscolhido = "msn";
+
+       if(appEscolhido.equals("msn")) {
+        servicoMensagem = new MSNMessenger();
+       }
+
+       if(appEscolhido.equals("facebook")) {
+        servicoMensagem = new FacebookMessenger();
+       }
+
+       if(appEscolhido.equals("telegram")) {
+        servicoMensagem = new Telegram();
+       }
+
+       servicoMensagem.enviarMensagens();
+       servicoMensagem.receberMensagens();
     }
 }

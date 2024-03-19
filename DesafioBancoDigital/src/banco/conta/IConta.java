@@ -2,9 +2,9 @@ package banco.conta;
 
 public interface IConta {
 
-    abstract void sacar(double valor);
-    abstract void depositar(double valor);
-    abstract void transferir(double valor, Conta contaDestino);
-    abstract void extrato();
+    void sacar(double valor);
+    void depositar(double valor);
+    void transferir(double valor, Conta contaDestino);
+    void extrato();
     
 }

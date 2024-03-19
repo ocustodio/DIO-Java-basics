@@ -7,8 +7,8 @@ public class Bootcamp {
     private String nome;
     private LocalDate inicio;
     private LocalDate fim;
-    private ArrayList<Dev> devs;
-    private ArrayList<Conteudo> conteudo;
+    private ArrayList<Dev> devs = new ArrayList<>();
+    private ArrayList<Conteudo> conteudos = new ArrayList<>();
 
     public Bootcamp(String nome, LocalDate inicio, LocalDate fim) {
         this.nome = nome;
@@ -21,7 +21,7 @@ public class Bootcamp {
     }
 
     public void setConteudo(ArrayList<Conteudo> conteudo) {
-        this.conteudo = conteudo;
+        this.conteudos = conteudo;
     }
 
     public String getNome() {
@@ -41,6 +41,6 @@ public class Bootcamp {
     }
 
     public ArrayList<Conteudo> getConteudo() {
-        return conteudo;
+        return conteudos;
     }
 }

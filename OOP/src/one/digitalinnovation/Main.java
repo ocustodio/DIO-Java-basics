@@ -23,6 +23,9 @@ public class Main {
         Dev victor = new Dev("Victor");
         victor.inscrever(cursoJava);
         victor.inscrever(bootcamp);
-        System.out.println(victor.getConteudosInscritos());
+        victor.progredir();
+
+        Dev camille = new Dev("Camille");
+        camille.inscrever(bootcamp);
     }
 }

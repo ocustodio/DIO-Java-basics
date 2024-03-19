@@ -1,6 +1,7 @@
 package one.digitalinnovation.dominio;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Dev {
     private String primeiroNome;
@@ -22,6 +23,18 @@ public class Dev {
     public void inscrever(Bootcamp bootcamp) {
         for(Conteudo conteudo: bootcamp.getConteudo()) {
             inscrever(conteudo);
+        }
+
+        bootcamp.getDevs().add(this);
+    }
+
+    public void progredir() {
+        Optional<Conteudo> conteudo = conteudosInscritos.stream().findFirst();
+        if(conteudo.isPresent()) {
+            conteudosConcluidos.add(conteudo.get());
+            conteudosInscritos.remove(conteudo.get());
+        } else {
+            System.err.println("Voce nao tem mais nenhum conteudo inscrito");
         }
     }
 

@@ -38,6 +38,13 @@ public class Dev {
         }
     }
 
+    public double calcTotalXP() {
+        return conteudosConcluidos
+                .stream()
+                .mapToDouble(conteudo -> conteudo.calcularXP())
+                .sum();
+    }
+
     public void setConteudosConcluidos(ArrayList<Conteudo> conteudosConcluidos) {
         this.conteudosConcluidos = conteudosConcluidos;
     }

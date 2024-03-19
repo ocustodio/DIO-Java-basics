@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Curso cursoJava = new Curso("Java", "Curso Java");
+        Curso cursoJava = new Curso("Java", "Curso Java", 76);
         cursoJava.setCargaHoraria(76);
 
         Mentoria mentoria = new Mentoria("OOP", "Aprendendo OOP");
@@ -24,8 +24,11 @@ public class Main {
         victor.inscrever(cursoJava);
         victor.inscrever(bootcamp);
         victor.progredir();
+        victor.progredir();
 
         Dev camille = new Dev("Camille");
         camille.inscrever(bootcamp);
+
+        System.out.println(victor.calcTotalXP());
     }
 }

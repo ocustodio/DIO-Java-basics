@@ -13,13 +13,16 @@ public class Dev {
 
     public void inscrever(Conteudo conteudo) {
         if(conteudosInscritos.contains(conteudo)) {
-            System.err.println("Voce ja esta inscrito no curso");
+            System.err.println("Voce ja esta inscrito no curso " + conteudo);
         } else {
             conteudosInscritos.add(conteudo);
         }
     }
 
     public void inscrever(Bootcamp bootcamp) {
+        for(Conteudo conteudo: bootcamp.getConteudo()) {
+            inscrever(conteudo);
+        }
     }
 
     public void setConteudosConcluidos(ArrayList<Conteudo> conteudosConcluidos) {

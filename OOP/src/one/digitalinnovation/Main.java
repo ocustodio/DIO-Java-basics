@@ -22,5 +22,7 @@ public class Main {
 
         Dev victor = new Dev("Victor");
         victor.inscrever(cursoJava);
+        victor.inscrever(bootcamp);
+        System.out.println(victor.getConteudosInscritos());
     }
 }

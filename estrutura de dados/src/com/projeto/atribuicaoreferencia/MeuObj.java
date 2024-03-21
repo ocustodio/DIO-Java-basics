@@ -1,4 +1,4 @@
-package com.projecto.atribuicaoreferencia;
+package com.projeto.atribuicaoreferencia;
 
 public class MeuObj {
     Integer num;

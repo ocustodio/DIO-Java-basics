@@ -1,25 +1,25 @@
 package com.projeto.fila;
 
-public class No {
-    private Object object;
-    private No refNo;
+public class No<T> {
+    private T object;
+    private No<T> refNo;
 
     public No() {};
 
-    public No(Object object){
+    public No(T object){
         this.object = object;
         this.refNo = null;
     }
 
-    public Object getObject(){
+    public T getObject(){
         return object;
     }
 
-    public void setRefNo(No refNo) {
+    public void setRefNo(No<T> refNo) {
         this.refNo = refNo;
     }
 
-    public No getRefNo() {
+    public No<T> getRefNo() {
         return refNo;
     };
 

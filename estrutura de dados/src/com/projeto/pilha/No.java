@@ -10,6 +10,10 @@ public class No {
         this.dado = dado;
     }
 
+    public int getDado() {
+        return dado;
+    }
+
     public No getRefNo() {
         return refNo;
     }

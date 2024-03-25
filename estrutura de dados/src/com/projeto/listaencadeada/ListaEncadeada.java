@@ -22,6 +22,20 @@ public class ListaEncadeada<T> {
         noAuxiliar.setProximoNo(novoNo);
     }
 
+    public T remove(int index) {
+        No<T> noPivo = this.getNo(index);
+
+        if (index == 0) {
+            referenciaEntrada = noPivo.getProximoNo();
+            return noPivo.getConteudo();
+        }
+
+        No<T> noAnterior = getNo(index - 1);
+        noAnterior.setProximoNo(noPivo.getProximoNo());
+
+        return noPivo.getConteudo();
+    }
+
     public T get(int index) {
         return getNo(index).getConteudo();
     }

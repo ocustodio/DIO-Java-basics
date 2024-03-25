@@ -46,7 +46,7 @@ public class ListaEncadeada<T> {
         No<T> noAuxiliar = referenciaEntrada;
         No<T> noRetorno = null;
 
-        for(int i = index; i < this.size() - 1; i++) {
+        for(int i = 0; i <= index; i++) {
             noRetorno = noAuxiliar;
             noAuxiliar = noAuxiliar.getProximoNo();
         }
@@ -81,8 +81,21 @@ public class ListaEncadeada<T> {
 
     private void validaIndex(int index) {
         if(index >= this.size()) {
-            throw new IndexOutOfBoundsException("Nao existe conteudo no indice " + index + "desta lista.");
+            throw new IndexOutOfBoundsException("Nao existe conteudo no indice " + index + " desta lista.");
         }
     }
 
+    @Override
+    public String toString() {
+        String strRetorno = "";
+        No<T> noAuxiliar = referenciaEntrada;
+
+        for(int i = 0; i < this.size(); i++) {
+            strRetorno += "[No{conteudo = " + noAuxiliar.getConteudo() + "}] ---> ";
+            noAuxiliar = noAuxiliar.getProximoNo();
+        }
+
+        strRetorno += "null";
+        return strRetorno;
+    }
 }

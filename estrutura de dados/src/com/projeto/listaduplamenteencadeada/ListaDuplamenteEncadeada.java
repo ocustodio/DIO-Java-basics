@@ -28,6 +28,29 @@ public class ListaDuplamenteEncadeada<T> {
         tamanhoLista++;
     }
 
+    public void add(int index, T elemento) {
+        No<T> noAuxiliar = this.getNo(index);
+        No<T> novoNo = new No<>(elemento);
+
+        novoNo.setNoProximo(noAuxiliar);
+
+        if (novoNo.getNoProximo() != null) {
+            novoNo.setNoPrevio(noAuxiliar.getNoPrevio());
+            novoNo.getNoProximo().setNoPrevio(novoNo);
+        } else {
+            novoNo.setNoPrevio(ultimoNo);
+            ultimoNo = novoNo;
+        }
+
+        if (index == 0) {
+            primeiroNo = novoNo;
+        } else {
+            novoNo.getNoPrevio().setNoProximo(novoNo);
+        }
+
+        tamanhoLista++;
+    }
+
     public T get(int index) {
         return this.getNo(index).getConteudo();
     }

@@ -6,11 +6,25 @@ public class ListaCircular<T> {
     private int tamanhoLista;
 
     public ListaCircular() {
+        this.cabeca = null;
+        this.cauda = null;
         this.tamanhoLista = 0;
     }
 
-    public T get(int index) {
-        return this.getNo(index).getConteudo();
+    public void add(T conteudo) {
+        No<T> novoNo = new No<>(conteudo);
+
+        if(this.isEmpty()) {
+            this.cabeca = novoNo;
+            this.cauda = this.cabeca;
+            this.cabeca.setProximoNo(cauda);
+        } else {
+            novoNo.setProximoNo(this.cauda);
+            this.cabeca.setProximoNo(novoNo);
+            this.cauda = novoNo;
+        }
+
+        this.tamanhoLista++;
     }
 
     public void remove(int index) {
@@ -33,6 +47,10 @@ public class ListaCircular<T> {
         }
 
         this.tamanhoLista--;
+    }
+
+    public T get(int index) {
+        return this.getNo(index).getConteudo();
     }
 
     private No<T> getNo(int index){

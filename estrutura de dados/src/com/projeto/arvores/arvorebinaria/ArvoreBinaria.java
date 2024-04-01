@@ -9,7 +9,7 @@ public class ArvoreBinaria<T extends Comparable<T>> {
 
     public void inserir(T conteudo) {
         No<T> novoNo = new No<>(conteudo);
-        this.raiz = inserir(raiz, novoNo);
+        this.raiz = inserir(this.raiz, novoNo);
     }
 
     private No<T> inserir(No<T> atual, No<T> novoNo) {
@@ -24,5 +24,44 @@ public class ArvoreBinaria<T extends Comparable<T>> {
         }
 
         return atual;
+    }
+
+    public void exibirEmOrdem() {
+        System.out.println("\n Exibindo em ordem");
+        exibirEmOrdem(this.raiz);
+    }
+
+    private void exibirEmOrdem(No<T> atual) {
+        if (atual != null) {
+            exibirEmOrdem(atual.getNoEsq());
+            System.out.println(atual.getConteudo() + ", ");
+            exibirEmOrdem(atual.getNoDir());
+        }
+    }
+
+    public void exibirPosOrdem() {
+        System.out.println("\n Exibindo em pos ordem");
+        exibirPosOrdem(this.raiz);
+    }
+
+    private void exibirPosOrdem(No<T> atual) {
+        if (atual != null) {
+            exibirPosOrdem(atual.getNoEsq());
+            exibirPosOrdem(atual.getNoDir());
+            System.out.println(atual.getConteudo() + ", ");
+        }
+    }
+
+    public void exibirPreOrdem() {
+        System.out.println("\n Exibindo em pre ordem");
+        exibirPreOrdem(this.raiz);
+    }
+
+    private void exibirPreOrdem(No<T> atual) {
+        if (atual != null) {
+            System.out.println(atual.getConteudo() + ", ");
+            exibirPreOrdem(atual.getNoEsq());
+            exibirPreOrdem(atual.getNoDir());
+        }
     }
 }

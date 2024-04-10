@@ -1,8 +1,6 @@
 package com.projeto.collections.list;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ListExample {
     public static void main(String[] args) {
@@ -34,5 +32,56 @@ public class ListExample {
         for(int i = 0; i < notas.size(); i++) {
             System.out.print(notas.get(i) + ", ");
         }
+
+        System.out.println("");
+
+        System.out.println(Collections.min(notas));
+        System.out.println(Collections.max(notas));
+
+//        Double sum = 0d;
+//
+//        for(int i = 0; i < notas.size(); i++) {
+//            sum += notas.get(i);
+//        }
+//
+//        System.out.print("total: " + sum);
+
+        Iterator<Double> iterator = notas.iterator();
+
+        Double sum = 0d;
+
+        while(iterator.hasNext()) {
+            Double next = iterator.next();
+            sum += next;
+        }
+
+        System.out.println(sum);
+
+        System.out.println(sum / notas.size());
+
+        System.out.println(notas.remove(notas.indexOf(1.2)));
+        System.out.println(notas);
+
+        Iterator<Double> iterator1 = notas.iterator();
+
+        while(iterator1.hasNext()) {
+            Double next = iterator1.next();
+
+            if (next < 7) iterator1.remove();
+        }
+
+        System.out.println(notas);
+
+        notas.clear();
+
+        System.out.println(notas);
+
+        System.out.println(notas.isEmpty());
+
+        List<Double> newNotas = new LinkedList<>();
+        newNotas.addAll(notas3);
+        System.out.println(newNotas);
+        System.out.println(newNotas.get(0));
+        System.out.println(newNotas.remove(0));
     }
 }

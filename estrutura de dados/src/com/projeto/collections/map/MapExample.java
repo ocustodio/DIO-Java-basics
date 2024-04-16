@@ -1,9 +1,6 @@
 package com.projeto.collections.map;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class MapExample {
     public static void main(String[] args) {
@@ -39,8 +36,36 @@ public class MapExample {
            if(entry.getValue().equals(bestConsumer))
                carHandle = entry.getKey();
         }
-
         System.out.println(carHandle + " " + carros.get(carHandle));
+
+        Double worstConsumer = Collections.min(carros.values());
+        for (Map.Entry<String, Double> entry: entries) {
+            if (entry.getValue().equals(worstConsumer))
+                carHandle = entry.getKey();
+        }
+        System.out.println(carHandle + " " + carros.get(carHandle));
+
+        Iterator<Double> iterator = carros.values().iterator();
+
+        Double sum = 0d;
+        while (iterator.hasNext()) {
+            Double next = iterator.next();
+            sum += next;
+        }
+        System.out.println(sum);
+
+        System.out.println(sum / carros.size());
+
+        Iterator<Double> iterator2 = carros.values().iterator();
+        while(iterator2.hasNext()) {
+            Double next = iterator2.next();
+
+            if(next == 15.6)
+                iterator2.remove();
+        }
+        System.out.println(carros);
+
+        Map<String, Double> novosCarros = new TreeMap<>(carros);
+        System.out.println(novosCarros.keySet());
     }
 }
-

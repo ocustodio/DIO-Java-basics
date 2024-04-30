@@ -20,11 +20,9 @@ public class Main {
                 return Integer.compare(g1.getIdade(), g2.getIdade());
             }
         });
-
         System.out.println(gatos);
 
         // Lambda function
-
 //        gatos.sort(Comparator.comparing(new Function<Gato, String>() {
 //            @Override
 //            public String apply(Gato gato) {
@@ -33,9 +31,11 @@ public class Main {
 //        }));
 
         gatos.sort(Comparator.comparing(gato -> gato.getNome()));
-
         System.out.println(gatos);
 
+        // Reference method
+        gatos.sort(Comparator.comparing(Gato::getNome));
+        System.out.println(gatos);
     }
 }
 

@@ -3,6 +3,7 @@ package com.projeto.classeanonima;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,6 +13,7 @@ public class Main {
             add(new Gato("Jon", 18, "amarelo"));
         }};
 
+        // Anonymous class
         gatos.sort(new Comparator<Gato>(){
             @Override
             public int compare(Gato g1, Gato g2) {
@@ -20,6 +22,20 @@ public class Main {
         });
 
         System.out.println(gatos);
+
+        // Lambda function
+
+//        gatos.sort(Comparator.comparing(new Function<Gato, String>() {
+//            @Override
+//            public String apply(Gato gato) {
+//                return gato.getNome();
+//            }
+//        }));
+
+        gatos.sort(Comparator.comparing(gato -> gato.getNome()));
+
+        System.out.println(gatos);
+
     }
 }
 

@@ -21,14 +21,49 @@ public class RefatoracaoOrdenacaoMap {
             System.out.println(entry.getKey() + " - " + entry.getValue().getNome());
         }
 
-        Set<Map.Entry<Integer, Contato>> newContatos = new TreeSet<>(new ComparatorOrdemNum());
+        // Anonymous function
+
+//        Set<Map.Entry<Integer, Contato>> newContatos = new TreeSet<>(
+//                new Comparator<Map.Entry<Integer, Contato>>() {
+//                    @Override
+//                    public int compare(Map.Entry<Integer, Contato> contato1, Map.Entry<Integer, Contato> contato2) {
+//                        return Integer.compare(contato1.getValue().getNumero(), contato2.getValue().getNumero());
+//                    }
+//                }
+//        );
+
+        // Comparator comparing
+
+//        Set<Map.Entry<Integer, Contato>> newContatos = new TreeSet<>(
+//                Comparator.comparing(
+//                        new Function<Map.Entry<Integer, Contato>, Integer>() {
+//                            @Override
+//                            public Integer apply(Map.Entry<Integer, Contato> contato) {
+//                                return contato.getValue().getNumero();
+//                            }
+//                        }
+//                )
+//        );
+
+        // Using lambda
+
+        Set<Map.Entry<Integer, Contato>> newContatos = new TreeSet<>(
+                Comparator.comparing(contatoEntry -> contatoEntry.getValue().getNumero())
+        );
         newContatos.addAll(insertContatos.entrySet());
 
         for (Map.Entry<Integer, Contato> entry: newContatos) {
             System.out.println(entry.getKey() + " - " + entry.getValue().getNumero());
         }
 
-        Set<Map.Entry<Integer, Contato>> newContatos2 = new TreeSet<>(new ComparatorOrdemNome());
+        Set<Map.Entry<Integer, Contato>> newContatos2 = new TreeSet<>(
+                new Comparator<Map.Entry<Integer, Contato>>() {
+                    @Override
+                    public int compare(Map.Entry<Integer, Contato> contato1, Map.Entry<Integer, Contato> contato2) {
+                        return contato1.getValue().getNome().compareTo(contato2.getValue().getNome());
+                    }
+                }
+        );
         newContatos2.addAll(insertContatos.entrySet());
 
         for (Map.Entry<Integer, Contato> entry: newContatos2) {
@@ -64,16 +99,16 @@ class Contato {
     }
 }
 
-class ComparatorOrdemNum implements Comparator<Map.Entry<Integer, Contato>> {
-    @Override
-    public int compare(Map.Entry<Integer, Contato> contato1, Map.Entry<Integer, Contato> contato2) {
-        return Integer.compare(contato1.getValue().getNumero(), contato2.getValue().getNumero());
-    }
-}
+//class ComparatorOrdemNum implements Comparator<Map.Entry<Integer, Contato>> {
+//    @Override
+//    public int compare(Map.Entry<Integer, Contato> contato1, Map.Entry<Integer, Contato> contato2) {
+//        return Integer.compare(contato1.getValue().getNumero(), contato2.getValue().getNumero());
+//    }
+//}
 
-class ComparatorOrdemNome implements Comparator<Map.Entry<Integer,Contato>> {
-    @Override
-    public int compare(Map.Entry<Integer, Contato> contato1, Map.Entry<Integer, Contato> contato2) {
-        return contato1.getValue().getNome().compareTo(contato2.getValue().getNome());
-    }
-}
+//class ComparatorOrdemNome implements Comparator<Map.Entry<Integer,Contato>> {
+//    @Override
+//    public int compare(Map.Entry<Integer, Contato> contato1, Map.Entry<Integer, Contato> contato2) {
+//        return contato1.getValue().getNome().compareTo(contato2.getValue().getNome());
+//    }
+//}
